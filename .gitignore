@@ -1,5 +1,6 @@
 ##ignore these files##
 assets
+__pycache__
 .history
 .pytest_cache
 .idea
