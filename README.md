@@ -20,3 +20,4 @@
 1.python3.x
 2.pip install selenium
 3.pip install pytest-rerunfailures
+4.pip install pytest-html

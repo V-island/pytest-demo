@@ -12,7 +12,6 @@ class TestLogin(object):
     def test_login(self, open_url, username, password, expect):
         login_page = open_url
         login_page.login(username, password)
-        login_page.switch_default_frame()
         actual = login_page.get_login_success_account()
         assert expect in actual, "登录成功, 断言失败"
 

@@ -47,7 +47,7 @@ class LoginPage(BasePage):
         return self.click(*LoginPage.loginBtn)
 
     def get_error_text(self):
-        return self.get_element_text(*LoginPage.error_head)
+        return self.get_element_text(*LoginPage.errorExplain)
 
     def get_login_success_account(self):
         return self.get_element_text(*LoginPage.account)
