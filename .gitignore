@@ -1,0 +1,7 @@
+##ignore these files##
+assets
+.history
+.pytest_cache
+.idea
+*.log
+venv
