@@ -10,6 +10,7 @@ class TestLogin(object):
 
     @pytest.mark.parametrize('username, password, expect', login_data.login_success_data)
     def test_login(self, open_url, username, password, expect):
+        """登录成功"""
         login_page = open_url
         login_page.login(username, password)
         actual = login_page.get_login_success_account()
