@@ -7,9 +7,8 @@ from util.parseConFile import ParseConFile
 
 do_conf = ParseConFile()
 # 从配置文件中获取正确的用户名和密码
-userName = do_conf.get_locators_or_account('126LoginAccount', 'username')
-passWord = do_conf.get_locators_or_account('126LoginAccount', 'password')
-
+userName = do_conf.get_locators_or_account('LoginAccount', 'username')
+passWord = do_conf.get_locators_or_account('LoginAccount', 'password')
 
 # @pytest.fixture(scope='function')
 # def login(driver):

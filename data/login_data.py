@@ -3,21 +3,24 @@ class LoginData(object):
 
     login_success_data = [
         (
-            "linuxxiaochao",
-            "xiaochao11520",
-            "linuxxiaochao@126.com"
+            "13511113333",
+            "Asd123456"
+        ),
+        (
+            "13511112222",
+            "Asd123456"
         )
     ]
 
     login_fail_data = [
         (
-            "linuxxiaochao",
+            "1351113333",
             "",
             "请输入密码"
         ),
         (
             "",
-            "xiaochao11520",
+            "123456",
             "请输入帐号"
         ),
         (
