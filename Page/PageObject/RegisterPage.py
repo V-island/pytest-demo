@@ -1,4 +1,3 @@
-from config.conf import OPEN_CLIENT_URL
 from Page.BasePage import BasePage
 from util.parseConFile import ParseConFile
 
@@ -36,25 +35,6 @@ class RegisterPage(BasePage):
 
     # 注册完成自动登录
     navMenu = do_conf.get_locators_or_account('HomePageElements', 'navMenu')
-
-    # 注册入口
-    def register(self, phone, email, password, confirm):
-        """注册流程"""
-        self.input_phone(phone)
-        self.click_phone_code_btn()
-        phone_code = self.get_code_text()
-        self.input_phone_code(phone_code)
-        self.input_email(email)
-        self.click_email_code_btn()
-        email_code = self.get_code_text()
-        self.input_email_code(email_code)
-        self.input_password(password)
-        self.input_confirm_password(confirm)
-        self.click_register_btn()
-
-    # 访问页面
-    def open_url(self):
-        return self.load_url(OPEN_CLIENT_URL)
 
     # 访问登录页
     def click_login(self):
@@ -94,8 +74,8 @@ class RegisterPage(BasePage):
 
     # 密码
     def input_password(self, password):
-        self.clear(*RegisterPage.password)
-        return self.send_keys(*RegisterPage.password, password)
+        self.clear(*RegisterPage.passWord)
+        return self.send_keys(*RegisterPage.passWord, password)
 
     # 确认密码
     def input_confirm_password(self, password):
@@ -113,10 +93,6 @@ class RegisterPage(BasePage):
     # 登录失败提示信息
     def get_error_text(self):
         return self.get_element_text(*RegisterPage.errorExplain)
-
-    # 登录成功后验证跳转
-    def get_login_success_account(self):
-        return self.get_element_text(*RegisterPage.navMenu)
 
 if __name__ == "__main__":
     pass
