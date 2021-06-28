@@ -149,6 +149,10 @@ class BasePage(object):
         """获取页面源码"""
         return self.driver.page_source
 
+    def refresh_url(self):
+        """刷新页面"""
+        return self.driver.refresh()
+
     def send_keys(self, by, locator, value=''):
         """写数据"""
         print('info:input "{}"'.format(value))
