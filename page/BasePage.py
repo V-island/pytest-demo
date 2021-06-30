@@ -2,6 +2,7 @@ import time
 from selenium.webdriver.support.wait import WebDriverWait as WD
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common.exceptions import (
     TimeoutException,
     NoAlertPresentException,
@@ -168,6 +169,17 @@ class BasePage(object):
         try:
             element = self.find_element(by, locator)
             element.clear()
+        except AttributeError as e:
+            print(e)
+
+    def move(self, by, locator):
+        """悬停于某个元素"""
+        print('info:move "{}"'.format(locator))
+        try:
+            element = self.find_element(by, locator)
+            hover = ActionChains(self.driver).move_to_element(element)  # 找到元素
+            hover.perform()  # 悬停
+            self.sleep(3)
         except AttributeError as e:
             print(e)
 

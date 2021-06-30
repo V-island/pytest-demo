@@ -34,7 +34,10 @@ class RegisterPage(BasePage):
     errorExplain = do_conf.get_locators_or_account('RegisterPageElements', 'errorExplain')
 
     # 注册完成自动登录
-    navMenu = do_conf.get_locators_or_account('HomePageElements', 'navMenu')
+    accessBtn = do_conf.get_locators_or_account('HomePageElements', 'accessBtn')
+    accessExplain = do_conf.get_locators_or_account('HomePageElements', 'accessExplain')
+    personalCenterMenu = do_conf.get_locators_or_account('HomePageElements', 'personalCenterMenu')
+    signOutItem = do_conf.get_locators_or_account('HomePageElements', 'signOutItem')
 
     # 访问登录页
     def click_login(self):
@@ -93,6 +96,17 @@ class RegisterPage(BasePage):
     # 登录失败提示信息
     def get_error_text(self):
         return self.get_element_text(*RegisterPage.errorExplain)
+
+    # 登录信息
+    def get_access_text(self):
+        return self.get_element_text(*RegisterPage.accessExplain)
+
+    # 退出登录
+    def sign_out(self):
+        self.click(*RegisterPage.accessBtn)
+        self.move(*RegisterPage.personalCenterMenu)
+        return self.click(*RegisterPage.signOutItem)
+
 
 if __name__ == "__main__":
     pass

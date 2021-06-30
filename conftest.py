@@ -50,6 +50,7 @@ def pytest_runtest_makereport(item, call):
     report.description = str(item.function.__doc__)
     report.nodeid = report.nodeid.encode("utf-8").decode("unicode_escape")  # 设置编码显示中文
 
+
 def _capture_screenshot():
     """
     截图保存为base64
@@ -68,6 +69,7 @@ def _capture_screenshot():
 # def pytest_html_results_summary(prefix):
 #     prefix.extend([html.p("所属部门: xx测试中心")])
 #     prefix.extend([html.p("测试人员: Linux超")])
+
 
 @pytest.fixture(scope='module')
 def driver():
