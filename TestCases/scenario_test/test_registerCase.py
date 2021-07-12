@@ -22,7 +22,7 @@ class TestRegister(object):
             assert '该用户已存在' == phone_code, "该用户已存在, 断言失败"
 
         else:
-            register_data.input_phone_code(phone_code)
+            register_data.input_phone_code()
             register_data.sleep(3)
             register_data.input_email(email)
             register_data.click_email_code_btn()
@@ -33,7 +33,7 @@ class TestRegister(object):
                 assert '该邮箱已注册' == email_code, "该邮箱已注册, 断言失败"
 
             else:
-                register_data.input_email_code(email_code)
+                register_data.input_email_code()
                 register_data.input_password(password)
                 register_data.input_confirm_password(confirm)
                 register_data.click_register_btn()

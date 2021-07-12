@@ -4,7 +4,7 @@ from data.login_data import LoginData
 
 @pytest.mark.loginTest
 class TestLogin(object):
-    """登录"""
+    """登录UI测试"""
     login_data = LoginData
 
     @pytest.mark.parametrize('username, password', login_data.login_success_data)

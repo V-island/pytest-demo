@@ -27,6 +27,7 @@ class RegisterPage(BasePage):
     registerBtn = do_conf.get_locators_or_account('RegisterPageElements', 'registerBtn')
     # 获取验证码消息提示
     getCodeText = do_conf.get_locators_or_account('RegisterPageElements', 'getCodeText')
+    verifyCode = do_conf.get_locators_or_account('GeneralConfig', 'verifyCode')
 
     # 校验失败提示信息
     errorVerify = do_conf.get_locators_or_account('RegisterPageElements', 'errorVerify')
@@ -57,9 +58,9 @@ class RegisterPage(BasePage):
         return self.click(*RegisterPage.phoneCodeBtn)
 
     # 手机验证码
-    def input_phone_code(self, code):
+    def input_phone_code(self):
         self.clear(*RegisterPage.phoneCode)
-        return self.send_keys(*RegisterPage.phoneCode, code)
+        return self.send_keys(*RegisterPage.phoneCode, *RegisterPage.verifyCode)
 
     # 邮箱
     def input_email(self, email):
@@ -71,9 +72,9 @@ class RegisterPage(BasePage):
         return self.click(*RegisterPage.emailCodeBtn)
 
     # 邮箱验证码
-    def input_email_code(self, code):
+    def input_email_code(self):
         self.clear(*RegisterPage.emailCode)
-        return self.send_keys(*RegisterPage.emailCode, code)
+        return self.send_keys(*RegisterPage.emailCode, *RegisterPage.verifyCode)
 
     # 密码
     def input_password(self, password):

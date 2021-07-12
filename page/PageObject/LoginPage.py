@@ -30,7 +30,7 @@ class LoginPage(BasePage):
     # 双重验证输入验证码
     verifyCode = do_conf.get_locators_or_account('LoginPageElements', 'verifyCode')
     # 获取验证码
-    getVerifyCode = do_conf.get_locators_or_account('LoginPageElements', 'getVerifyCode')
+    verifyCode = do_conf.get_locators_or_account('GeneralConfig', 'verifyCode')
 
     # 登录成功后进入菜单
     navMenu = do_conf.get_locators_or_account('HomePageElements', 'navMenu')
@@ -54,8 +54,7 @@ class LoginPage(BasePage):
 
         if self.is_element_exist(*LoginPage.verifyCodeBtn):
             self.click_verify_code_btn()
-            code = self.get_verify_code()
-            self.input_verify_code(code)
+            self.input_verify_code(*LoginPage.verifyCode)
 
     # 访问页面
     def open_url(self):
@@ -89,9 +88,6 @@ class LoginPage(BasePage):
     # 获取验证码按钮
     def click_verify_code_btn(self):
         return self.click(*LoginPage.verifyCodeBtn)
-
-    def get_verify_code(self):
-        return self.get_element_text(*LoginPage.getVerifyCode)
 
     def clear_verify_code(self):
         return self.clear(*LoginPage.verifyCode)
