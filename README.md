@@ -17,7 +17,11 @@
 #### 环境需求
 
 1.python3.x
+
 2.pip install selenium
+
 3.pip install pytest-rerunfailures
+
 4.pip install pytest-html
+
 5.pip install pytest-xdist
