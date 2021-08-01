@@ -8,8 +8,8 @@ from selenium.common.exceptions import (
     NoAlertPresentException,
 )
 
-from util.clipboard import ClipBoard
-from util.keyboard import KeyBoard
+# from util.clipboard import ClipBoard
+# from util.keyboard import KeyBoard
 from util.parseConFile import ParseConFile
 from util.parseExcelFile import ParseExcel
 
@@ -201,15 +201,15 @@ class BasePage(object):
     def ctrl_v(self, value):
         """ctrl + V 粘贴"""
         print('info:pasting "{}"'.format(value))
-        ClipBoard.set_text(value)
+        # ClipBoard.set_text(value)
         self.sleep(3)
-        KeyBoard.two_keys('ctrl', 'v')
+        # KeyBoard.two_keys('ctrl', 'v')
 
     @staticmethod
     def enter_key():
         """enter 回车键"""
         print('info:keydown enter')
-        KeyBoard.one_key('enter')
+        # KeyBoard.one_key('enter')
 
     def wait_element_to_be_located(self, by, locator):
         """显示等待某个元素出现，且可见"""
